@@ -47,8 +47,13 @@ function createCartItemElement({ title, price }) {
     const li = document.createElement('li');
     li.className = 'cart-item';
     li.innerText = `${title} | Preço: $${price}`;
+    li.addEventListener('click', removeCartItem);
     return li;
 }
+
+function removeCartItem({ target }) {
+    target.remove();
+  }
 
 async function addProductToCart(id) {
     const url = `https://api.mercadolibre.com/items/${id}`;
