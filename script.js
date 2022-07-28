@@ -1,5 +1,6 @@
 const items = document.querySelector('.items');
 const cartItemsList = document.querySelector('.cart-items');
+const clearShoppingCartButton = document.querySelector('.empty-cart');
 
 function createProductImageElement(imgSource) {
     const img = document.createElement('img');
@@ -70,6 +71,12 @@ document.addEventListener('click', ({ target }) => {
       return addProductToCart(getProductId(target.parentElement));
     }
 });
+
+const clearShoppingCart = () => {
+    cartItemsList.innerHTML = '';
+};
+
+clearShoppingCartButton.addEventListener('click', clearShoppingCart);
 
 window.onload = () => {
     getProductstList();
